@@ -1,0 +1,414 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffe4e8;
+  font-family: "Nunito", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-image:
+    radial-gradient(circle at 15% 85%, #ffb3c1 0%, transparent 40%),
+    radial-gradient(circle at 85% 15%, #ff8fa3 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, #fff0f3 0%, transparent 60%);
+}
+
+/* Floating hearts background */
+.cm-hearts-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cm-hearts-bg::before,
+.cm-hearts-bg::after {
+  content: "💕 💗 💖 💝 💓";
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.15;
+  animation: floatHearts 12s linear infinite;
+  white-space: nowrap;
+  top: 100%;
+  left: 10%;
+}
+
+.cm-hearts-bg::after {
+  animation-delay: 6s;
+  left: 60%;
+  content: "💗 💕 💓 💖 💝";
+}
+
+@keyframes floatHearts {
+  from {
+    transform: translateY(0);
+    opacity: 0.15;
+  }
+  to {
+    transform: translateY(-110vh);
+    opacity: 0;
+  }
+}
+
+.cm-container {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Header text styles */
+.cm-header-text,
+.cm-valentine-title {
+  font-family: "Nunito", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.cm-valentine-title {
+  font-size: 2.4rem;
+  color: #d63384;
+  font-weight: 900;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 0px rgba(214, 51, 132, 0.2);
+  animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+}
+
+/* Text styles for yes page */
+.cm-text {
+  font-family: "Nunito", sans-serif;
+  font-size: 50px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 0;
+}
+
+.cm-yes-text {
+  margin-top: -30px;
+  font-size: 1.4rem;
+  color: #e91e8c;
+  font-weight: 700;
+}
+
+/* Yes page specific */
+.cm-yes-title {
+  font-size: 2.8rem;
+  animation: bounceTitle 0.6s ease infinite alternate;
+}
+
+@keyframes bounceTitle {
+  from {
+    transform: translateY(0) rotate(-1deg);
+  }
+  to {
+    transform: translateY(-12px) rotate(1deg);
+  }
+}
+
+.cm-yes-message {
+  font-size: 1.4rem;
+  color: #e91e8c;
+  font-weight: 700;
+  margin-top: 24px;
+  animation: fadeIn 1s ease 0.5s both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons container */
+.cm-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+/* Button base styles */
+.cm-btn {
+  background-color: #80c3d8;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.cm-btn:hover {
+  background-color: #faf9f6;
+}
+
+/* Yes button */
+#cm-yes-btn {
+  background: linear-gradient(135deg, #4caf50, #45a049);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.6rem;
+  font-weight: 900;
+  font-family: "Nunito", sans-serif;
+  padding: 18px 45px;
+  cursor: pointer;
+  transition:
+    transform 0.15s,
+    box-shadow 0.15s;
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.45);
+  letter-spacing: 1px;
+}
+
+#cm-yes-btn:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 10px 28px rgba(76, 175, 80, 0.55);
+}
+
+#cm-yes-btn:active {
+  transform: scale(0.98);
+}
+
+/* No button */
+#cm-no-btn {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
+  padding: 12px 28px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    left 0.25s ease,
+    top 0.25s ease;
+  box-shadow: 0 4px 14px rgba(231, 76, 60, 0.4);
+}
+
+#cm-no-btn:hover {
+  background: linear-gradient(135deg, #c0392b, #a93226);
+}
+
+/* GIF container */
+.cm-gif-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+}
+
+#cm-cat-gif {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.15));
+  transition: opacity 0.3s ease;
+}
+
+.cm-yes-gif {
+  align-items: center;
+  margin-top: -60px;
+}
+
+.cm-yes-gif #cm-cat-gif {
+  width: 260px;
+  height: 260px;
+}
+
+/* Made with love footer */
+.cm-made-with-love {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #777;
+}
+
+.cm-github-link {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.cm-github-link:hover {
+  text-decoration: underline;
+}
+
+/* Tease toast message */
+#cm-tease-toast {
+  margin-top: 14px;
+  font-size: 1rem;
+  color: #d63384;
+  font-weight: 700;
+  font-style: italic;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  min-height: 1.5rem;
+}
+
+#cm-tease-toast.cm-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Music toggle button */
+#cm-music-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s;
+  z-index: 100;
+}
+
+#cm-music-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Landing page styles */
+.cm-landing-container {
+  gap: 20px;
+}
+
+.cm-landing-title {
+  font-size: 3.5rem;
+  color: #d63384;
+  font-weight: 900;
+  text-shadow: 3px 3px 0px rgba(214, 51, 132, 0.2);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.cm-landing-subtitle {
+  font-size: 1.3rem;
+  color: #ff6b9d;
+  font-weight: 600;
+  margin-bottom: 30px;
+  animation: fadeIn 1s ease 0.5s both;
+}
+
+.cm-valentine-btn {
+  background: linear-gradient(135deg, #ff6b9d, #d63384);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  font-family: "Nunito", sans-serif;
+  padding: 20px 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 30px rgba(214, 51, 132, 0.5);
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.cm-valentine-btn:hover {
+  transform: scale(1.1) translateY(-5px);
+  box-shadow: 0 15px 40px rgba(214, 51, 132, 0.6);
+}
+
+.cm-valentine-btn:active {
+  transform: scale(0.95);
+}
+
+/* Bottom note for yes page */
+.cm-bottom-note {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #777;
+}
+
+/* Old button styles - keep for compatibility */
+.cm-btn {
+  background-color: #80c3d8;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.cm-btn:hover {
+  background-color: #faf9f6;
+}
