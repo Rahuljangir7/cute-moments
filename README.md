@@ -11,6 +11,19 @@ An interactive Valentine's Day proposal website built with React + TypeScript + 
 - **Floating Hearts Animation** - Romantic background effect
 - **Local GIF Assets** - All GIFs downloaded for offline use
 
+### Cute Moments Features 💝
+
+- **💕 Love Timeline** - Our Love Story with special memories
+- **💘 Love Calculator** - Quiz-based love percentage calculator
+- **💌 Virtual Love Letter** - Typewriter effect romantic letter
+- **⏰ Anniversary Countdown** - Time since met + until next anniversary
+- **📸 Photo Gallery** - Memory photo placeholders
+- **🫙 Promise Jar** - Random romantic promise picker
+- **🎯 Compatibility Quiz** - Fun couple quiz game
+- **🎵 Music Player** - Special songs playlist
+- **🗺️ Love Map** - Interactive locations of memories
+- **📖 Digital Scrapbook** - Sticker-placing memory book
+
 ## Tech Stack 🛠️
 
 - React 18
@@ -107,13 +120,14 @@ npm run build
 
 ## What This Website Does 💝
 
-**Purpose:** A fun, interactive way to ask someone to be your Valentine!
+**Purpose:** A fun, interactive way to ask someone to be your Valentine and cherish cute moments together!
 
 **How It Works:**
 
-1. **Landing** - Romantic welcome with floating hearts background
-2. **Proposal** - The "No" button runs away and gets smaller, while "Yes" grows bigger with each click
+1. **Landing** - Romantic welcome with floating hearts + explore cute moments
+2. **Proposal** - The "No" button runs away, "Yes" grows bigger with each click
 3. **Celebration** - Confetti rain and music when they say yes!
+4. **Cute Moments** - 10 interactive features to relive your love story
 
 **Features:**
 
@@ -122,6 +136,7 @@ npm run build
 - 🎭 Progressive GIF reactions (happy → sad)
 - 🎊 Confetti celebration
 - 📱 Fully responsive design
+- 💝 10 Cute Moments pages (timeline, calculator, letter, countdown, gallery, jar, quiz, music, map, scrapbook)
 
 ## License
 
