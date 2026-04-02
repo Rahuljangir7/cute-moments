@@ -48,78 +48,80 @@ npm run dev
 npm run build
 ```
 
-## Project Structure
+## Website Flow 🌐
 
 ```
-cute-moments/
-├── public/
-│   ├── gifs/           # Local GIF assets
-│   └── music/          # Background music
-├── src/
-│   ├── pages/
-│   │   ├── Landing.tsx    # Welcome page
-│   │   ├── Home.tsx       # Proposal page
-│   │   └── Yes.tsx        # Celebration page
-│   ├── App.tsx
-│   ├── App.css            # All styles with cm- prefix
-│   └── main.tsx
-├── index.html
-└── package.json
+┌─────────────────────────────────────────────────────────────┐
+│                                                             │
+│   🌸 LANDING PAGE 🌸                                        │
+│   ┌─────────────────────────────────────────────────────┐   │
+│   │                                                     │   │
+│   │     💕 Welcome 💕                                  │   │
+│   │                                                     │   │
+│   │   "I have something special for you..."           │   │
+│   │                                                     │   │
+│   │   ┌─────────────────┐                               │   │
+│   │   │ 💝 Valentine's │  ← Click to Enter           │   │
+│   │   │     Day        │                               │   │
+│   │   └─────────────────┘                               │   │
+│   │                                                     │   │
+│   └─────────────────────────────────────────────────────┘   │
+│                         ↓                                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   💌 PROPOSAL PAGE 💌                                       │
+│   ┌─────────────────────────────────────────────────────┐   │
+│   │                                                     │   │
+│   │  "Will you be my Valentine? 💕"                    │   │
+│   │                                                     │   │
+│   │         [Cute GIF Changes]                          │   │
+│   │              😊 → 😢                               │   │
+│   │         Based on clicks                             │   │
+│   │                                                     │   │
+│   │   ┌──────────┐    ┌──────────┐                   │   │
+│   │   │   YES    │    │    NO    │  ← Runs away!     │   │
+│   │   │  (Grows) │    │ (Shrinks)│                   │   │
+│   │   └──────────┘    └──────────┘                   │   │
+│   │        ↓                                            │   │
+│   └─────────────────────────────────────────────────────┘   │
+│                         ↓                                   │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│   🎉 CELEBRATION PAGE 🎉                                    │
+│   ┌─────────────────────────────────────────────────────┐   │
+│   │                                                     │   │
+│   │   🎊  Confetti Explosion  🎊                       │   │
+│   │                                                     │   │
+│   │   "Knew you would say yes!"                        │   │
+│   │                                                     │   │
+│   │        [Celebration GIF]                            │   │
+│   │                                                     │   │
+│   │   "You just made me the happiest person! 💕"      │   │
+│   │                                                     │   │
+│   │   🔊 Music Toggle (Bottom Right)                   │   │
+│   │                                                     │   │
+│   └─────────────────────────────────────────────────────┘   │
+│                                                             │
+└─────────────────────────────────────────────────────────────┘
 ```
 
-## Routes
+## What This Website Does 💝
 
-| Route       | Page    | Description                         |
-| ----------- | ------- | ----------------------------------- |
-| `/`         | Landing | Welcome with Valentine's Day button |
-| `/proposal` | Home    | Interactive Yes/No proposal         |
-| `/yes`      | Yes     | Celebration with confetti           |
+**Purpose:** A fun, interactive way to ask someone to be your Valentine!
 
-## Unique Class Names
+**How It Works:**
 
-All CSS classes use `cm-` prefix for uniqueness:
+1. **Landing** - Romantic welcome with floating hearts background
+2. **Proposal** - The "No" button runs away and gets smaller, while "Yes" grows bigger with each click
+3. **Celebration** - Confetti rain and music when they say yes!
 
-- `cm-container`
-- `cm-hearts-bg`
-- `cm-valentine-title`
-- `cm-buttons`
-- `cm-yes-btn`, `cm-no-btn`
-- `cm-gif-container`
-- `cm-music-toggle`
+**Features:**
 
-## Customization
-
-### Change GIFs
-
-Replace files in `public/gifs/` folder:
-
-- `stage-0.gif` to `stage-6.gif` - Proposal reactions
-- `celebration.gif` - Success animation
-
-### Change Music
-
-Replace file in `public/music/` folder:
-
-- `beabadoobee - Glue Song (Lyrics).mp3`
-
-### Change Messages
-
-Edit in `src/pages/Home.tsx`:
-
-- `noMessages` - No button text progression
-- `yesTeasePokes` - Teasing messages before runaway mode
-
-## Downloading GIFs
-
-Use the included PowerShell script to download all third-party GIFs locally:
-
-```bash
-.\download-gifs.ps1
-```
-
-## Browser Policy
-
-Browsers block audio autoplay until user interaction. Music starts on first click.
+- 🎵 Background music with toggle
+- 💕 Floating hearts animation
+- 🎭 Progressive GIF reactions (happy → sad)
+- 🎊 Confetti celebration
+- 📱 Fully responsive design
 
 ## License
 

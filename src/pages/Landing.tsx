@@ -16,9 +16,69 @@ function Landing(): JSX.Element {
           I have something special for you...
         </p>
 
-        <button className="cm-valentine-btn" onClick={cmNavigateToProposal}>
-          💝 Valentine's Day
-        </button>
+        {/* Feature Navigation Buttons */}
+        <div className="cm-features-section">
+          <p className="cm-features-label">✨ Explore More Cute Moments ✨</p>
+          <div className="cm-features-grid">
+            <button
+              className="cm-feature-btn cm-feature-main"
+              onClick={cmNavigateToProposal}
+            >
+              💝 Valentine's Day
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/love-calculator")}
+            >
+              💕 Love Calculator
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/love-letter")}
+            >
+              💌 Love Letter
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/countdown")}
+            >
+              ⏰ Countdown
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/gallery")}
+            >
+              📸 Photo Gallery
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/promise-jar")}
+            >
+              🫙 Promise Jar
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/quiz")}
+            >
+              🎯 Compatibility Quiz
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/music")}
+            >
+              🎵 Music Player
+            </button>
+            <button className="cm-feature-btn" onClick={() => navigate("/map")}>
+              🗺️ Love Map
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/scrapbook")}
+            >
+              📖 Scrapbook
+            </button>
+          </div>
+        </div>
       </div>
     </>
   );

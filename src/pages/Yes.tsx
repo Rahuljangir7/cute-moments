@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti";
 
 function Yes(): JSX.Element {
+  const navigate = useNavigate();
   const cmMusicRef = useRef<HTMLAudioElement>(null);
   const [cmAudioPlaying, setCmAudioPlaying] = useState(false);
 
@@ -83,6 +85,10 @@ function Yes(): JSX.Element {
     }
   }, [cmAudioPlaying]);
 
+  const cmHandleViewTimeline = (): void => {
+    navigate("/timeline");
+  };
+
   return (
     <>
       <div className="cm-hearts-bg"></div>
@@ -97,6 +103,10 @@ function Yes(): JSX.Element {
         <p className="cm-yes-message">
           You just made me the happiest person! 💕
         </p>
+
+        <button className="cm-timeline-nav-btn" onClick={cmHandleViewTimeline}>
+          📸 View Our Memories →
+        </button>
       </div>
 
       <audio id="cm-bg-music" loop ref={cmMusicRef}>

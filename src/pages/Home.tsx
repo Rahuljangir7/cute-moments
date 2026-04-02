@@ -138,7 +138,7 @@ function Home(): JSX.Element {
   return (
     <>
       <div className="cm-hearts-bg"></div>
-      <div className="cm-container">
+      <div className="cm-container cm-home-container">
         <h1 className="cm-valentine-title">Will you be my Valentine? 💕</h1>
         <div className="cm-gif-container">
           <img
