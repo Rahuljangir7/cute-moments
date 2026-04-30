@@ -352,7 +352,7 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
 
 .cm-landing-subtitle {
   font-size: 1.3rem;
-  color: #ff6b9d;
+  color: #b02a6b; /* Darkened for better contrast */
   font-weight: 600;
   margin-bottom: 30px;
   animation: fadeIn 1s ease 0.5s both;
@@ -638,7 +638,7 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
 
 .cm-features-label {
   font-size: 1.1rem;
-  color: #d63384;
+  color: #b02a6b; /* Darkened for better contrast */
   font-weight: 700;
   margin-bottom: 15px;
   text-align: center;
@@ -2269,7 +2269,7 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
 
 .cm-sidebar-link:hover, .cm-sidebar-link.active {
   background: #fff0f3;
-  color: #d63384;
+  color: #a02560; /* Darkened for accessibility */
   padding-left: 20px;
 }
 
