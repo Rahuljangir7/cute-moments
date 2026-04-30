@@ -16,9 +16,14 @@ import VirtualHug from "./pages/VirtualHug";
 import DailyCompliment from "./pages/DailyCompliment";
 import MoodHeart from "./pages/MoodHeart";
 import SecretMessage from "./pages/SecretMessage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Terms from "./pages/Terms";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import HomeButton from "./components/HomeButton";
 import CursorStars from "./components/CursorStars";
 import Sidebar from "./components/Sidebar";
+import Footer from "./components/Footer";
 
 function App(): JSX.Element {
   return (
@@ -44,7 +49,12 @@ function App(): JSX.Element {
         <Route path="/compliment" element={<DailyCompliment />} />
         <Route path="/mood" element={<MoodHeart />} />
         <Route path="/secret" element={<SecretMessage />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
+      <Footer />
     </>
   );
 }
