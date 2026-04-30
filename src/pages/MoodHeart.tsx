@@ -1,12 +1,12 @@
 import { useState } from "react";
 
 const moods = [
-  { name: "Happy", emoji: "😊", color: "#ffeb3b" },
-  { name: "Romantic", emoji: "🥰", color: "#e91e63" },
-  { name: "Playful", emoji: "😜", color: "#ff9800" },
-  { name: "Sleepy", emoji: "😴", color: "#3f51b5" },
-  { name: "Miss You", emoji: "🥺", color: "#9c27b0" },
-  { name: "Excited", emoji: "🤩", color: "#f44336" },
+  { name: "Happy", image: "/photos/mood_happy.png", color: "#ffeb3b" },
+  { name: "Romantic", image: "/photos/mood_romantic.png", color: "#e91e63" },
+  { name: "Playful", image: "/photos/mood_playful.png", color: "#ff9800" },
+  { name: "Sleepy", image: "/photos/mood_sleepy.png", color: "#3f51b5" },
+  { name: "Miss You", image: "/photos/mood_miss_you.png", color: "#9c27b0" },
+  { name: "Excited", image: "/photos/mood_excited.png", color: "#f44336" },
 ];
 
 const MoodHeart = () => {
@@ -19,17 +19,24 @@ const MoodHeart = () => {
         <h1 className="cm-timeline-title">Mood Heart 💖</h1>
         <p className="cm-timeline-subtitle">How are you feeling right now? Let me know!</p>
         
+
         <div 
-          className="cm-mood-heart"
+          className="cm-mood-display-wrapper"
           style={{ 
-            color: selectedMood.color,
-            textShadow: `0 0 30px ${selectedMood.color}80`
+            borderColor: selectedMood.color,
+            boxShadow: `0 15px 45px ${selectedMood.color}40`
           }}
         >
-          ❤️
-          <div style={{ fontSize: '2rem', marginTop: '-30px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-            {selectedMood.emoji}
-          </div>
+          <img 
+            src={selectedMood.image} 
+            alt={selectedMood.name} 
+            className="cm-main-mood-img"
+            key={selectedMood.name} 
+          />
+          <div 
+            className="cm-mood-glow" 
+            style={{ background: `radial-gradient(circle, ${selectedMood.color}20 0%, transparent 70%)` }}
+          ></div>
         </div>
 
         <div className="cm-mood-options">
@@ -39,7 +46,9 @@ const MoodHeart = () => {
               className={`cm-mood-btn ${selectedMood.name === mood.name ? "cm-selected" : ""}`}
               onClick={() => setSelectedMood(mood)}
             >
-              <span>{mood.emoji}</span>
+              <div className="cm-mood-btn-img-wrapper">
+                <img src={mood.image} alt={mood.name} className="cm-mood-btn-img" />
+              </div>
               <p>{mood.name}</p>
             </button>
           ))}

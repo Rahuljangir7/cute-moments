@@ -2051,17 +2051,68 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
   max-width: 500px;
 }
 
-.cm-mood-heart {
-  font-size: 10rem;
-  cursor: pointer;
-  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  display: inline-block;
-  margin: 40px 0;
-  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+.cm-mood-illustration {
+  width: 100%;
+  max-width: 350px;
+  margin: 20px 0;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(214, 51, 132, 0.2);
+  animation: fadeIn 1s ease-out;
 }
 
-.cm-mood-heart:hover {
-  transform: scale(1.1);
+.cm-mood-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.cm-mood-illustration:hover .cm-mood-img {
+  transform: scale(1.05);
+}
+
+/* Mood Heart Display */
+.cm-mood-display-wrapper {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  border: 10px solid white;
+  position: relative;
+  overflow: hidden;
+  margin: 40px 0;
+  background: white;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.cm-main-mood-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: moodFocus 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes moodFocus {
+  0% { transform: scale(1.2); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.cm-mood-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cm-mood-display-wrapper:hover {
+  transform: scale(1.05);
 }
 
 .cm-mood-options {
@@ -2071,8 +2122,23 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
   width: 100%;
 }
 
+.cm-mood-btn-img-wrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 8px;
+  border: 2px solid #eee;
+}
+
+.cm-mood-btn-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .cm-mood-btn {
-  padding: 15px;
+  padding: 12px 5px;
   border-radius: 15px;
   border: 2px solid transparent;
   background: white;
