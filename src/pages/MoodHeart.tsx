@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 const moods = [
   { name: "Happy", image: "/photos/mood_happy.png", color: "#ffeb3b" },
@@ -14,6 +15,11 @@ const MoodHeart = () => {
 
   return (
     <>
+      <SEO 
+        title="Mood Heart" 
+        description="Share your current mood with your loved one. Let them know if you're feeling happy, romantic, or just missing them."
+        keywords="mood heart, romantic mood, love tracker, relationship mood"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-mood-container">
         <h1 className="cm-timeline-title">Mood Heart 💖</h1>

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
+import SEO from "../components/SEO";
 
 const GalleryIcon = () => (
   <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -105,6 +106,11 @@ function PhotoGallery(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Our Romantic Gallery" 
+        description="Browse through our most precious and realistic memories. A beautiful collection of photos from our journey together."
+        keywords="photo gallery, romantic photos, relationship memories, couple pictures"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-gallery-container">
         <div className="cm-gallery-header">

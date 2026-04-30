@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 
 function Landing(): JSX.Element {
   const navigate = useNavigate();
@@ -9,6 +10,11 @@ function Landing(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Welcome" 
+        description="A special place for our cute moments. Explore our interactive features like virtual hugs, love letters, and shared memories."
+        keywords="romantic moments, love app, relationship memories, virtual scrapbook, virtual hug"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-landing-container">
         <h1 className="cm-landing-title">Welcome 💕</h1>

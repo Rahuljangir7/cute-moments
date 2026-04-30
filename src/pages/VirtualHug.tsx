@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 const VirtualHug = () => {
   const [hugStage, setHugStage] = useState(0); 
@@ -40,6 +41,11 @@ const VirtualHug = () => {
 
   return (
     <>
+      <SEO 
+        title="Virtual Hug" 
+        description="Need a hug? Send or receive a virtual hug with interactive stages. Experience the warmth and closeness, no matter the distance."
+        keywords="virtual hug, romantic hug, digital hug, love expression, interactive hug"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-hug-container">
         <h1 className="cm-timeline-title">Virtual Hug</h1>
