@@ -11,15 +11,16 @@ interface SEOProps {
 const SEO = ({ title, description, keywords, image, url }: SEOProps) => {
   const siteName = "Cute Moments";
   const fullTitle = `${title} | ${siteName}`;
-  const defaultImage = "/og-image.png"; // Make sure to provide a default OG image later
-  const siteUrl = window.location.origin;
+  const defaultImage = "/og-image.png";
+  const siteUrl = "https://cute-moments.vercel.app";
+  const defaultKeywords = "romantic moments, cute relationship app, virtual hug for boyfriend, virtual hug for girlfriend, romantic scrapbook, love calculator, couple memories tracker, valentine's day surprise, romantic love letters, relationship bonding features";
 
   return (
     <Helmet>
       {/* Standard Metadata */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {keywords && <meta name="keywords" content={keywords} />}
+      <meta name="keywords" content={keywords ? `${keywords}, ${defaultKeywords}` : defaultKeywords} />
       
       {/* Open Graph / Facebook */}
       <meta property="og:type" content="website" />

@@ -12,8 +12,8 @@ function Landing(): JSX.Element {
     <>
       <SEO 
         title="Welcome" 
-        description="A special place for our cute moments. Explore our interactive features like virtual hugs, love letters, and shared memories."
-        keywords="romantic moments, love app, relationship memories, virtual scrapbook, virtual hug"
+        description="Experience the most romantic moments with our cute relationship app. Send virtual hugs, create a digital scrapbook, write heartfelt love letters, and track your precious couple memories."
+        keywords="romantic moments, cute relationship app, virtual hug, love letter generator, digital scrapbook for couples, relationship tracker"
       />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-landing-container">
