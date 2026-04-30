@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://cute-moments.com/sitemap.xml
+Sitemap: https://cute-moments.vercel.app/sitemap.xml
