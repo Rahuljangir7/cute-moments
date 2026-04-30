@@ -104,9 +104,20 @@ function Yes(): JSX.Element {
           You just made me the happiest person! 💕
         </p>
 
-        <button className="cm-timeline-nav-btn" onClick={cmHandleViewTimeline}>
-          📸 View Our Memories →
-        </button>
+        <div className="cm-yes-actions">
+          <button className="cm-timeline-nav-btn" onClick={cmHandleViewTimeline}>
+            📸 View Our Memories →
+          </button>
+          
+          <div className="cm-extra-actions">
+            <button className="cm-feature-btn" onClick={() => navigate("/hug")}>
+              🤗 Get a Hug
+            </button>
+            <button className="cm-feature-btn" onClick={() => navigate("/compliment")}>
+              💖 Daily Compliment
+            </button>
+          </div>
+        </div>
       </div>
 
       <audio id="cm-bg-music" loop ref={cmMusicRef}>

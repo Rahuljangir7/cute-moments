@@ -1,35 +1,27 @@
-// SVG Icons
-const MapIcon = () => (
-  <svg
-    width="60"
-    height="60"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M20.5 3l-6 2-6-2-5.5 2v15l6-2 6 2 5.5-2V3z"
-      stroke="#d63384"
-      strokeWidth="2"
-      fill="none"
-    />
-    <circle cx="12" cy="10" r="3" fill="#ff6b9d" />
-    <path d="M12 13v8" stroke="#d63384" strokeWidth="2" />
-  </svg>
-);
+import { useState } from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
 
-const PinIcon = () => (
-  <svg
-    width="30"
-    height="30"
-    viewBox="0 0 24 24"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-      fill="#d63384"
-    />
+// Fix for default marker icons in Leaflet with React
+import markerIcon from "leaflet/dist/images/marker-icon.png";
+import markerShadow from "leaflet/dist/images/marker-shadow.png";
+
+let DefaultIcon = L.icon({
+  iconUrl: markerIcon,
+  shadowUrl: markerShadow,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+});
+
+// @ts-ignore
+L.Marker.prototype.options.icon = DefaultIcon;
+
+// SVG Icons for Header
+const MapIcon = () => (
+  <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20.5 3l-6 2-6-2-5.5 2v15l6-2 6 2 5.5-2V3z" stroke="#d63384" strokeWidth="2" fill="none" />
+    <circle cx="12" cy="10" r="3" fill="#ff6b9d" />
   </svg>
 );
 
@@ -38,53 +30,27 @@ const locations = [
     id: 1,
     name: "Where We First Met",
     description: "The place where our story began ✨",
-    x: 30,
-    y: 40,
+    position: [28.6139, 77.2090] as [number, number], // New Delhi example
     emoji: "💫",
   },
   {
     id: 2,
     name: "First Date Spot",
     description: "Where sparks first flew 💕",
-    x: 60,
-    y: 30,
+    position: [28.6324, 77.2187] as [number, number],
     emoji: "🌹",
   },
   {
     id: 3,
     name: "Our Favorite Cafe",
     description: "Countless coffee dates ☕",
-    x: 45,
-    y: 60,
+    position: [28.6219, 77.2111] as [number, number],
     emoji: "☕",
-  },
-  {
-    id: 4,
-    name: "The Proposal",
-    description: "Where you said YES! 💍",
-    x: 70,
-    y: 50,
-    emoji: "💍",
-  },
-  {
-    id: 5,
-    name: "Future Home",
-    description: "Where we'll build our life together 🏠",
-    x: 50,
-    y: 75,
-    emoji: "🏠",
   },
 ];
 
 function LoveMap(): JSX.Element {
-  const cmHandlePinClick = (locationId: number): void => {
-    const location = locations.find((l) => l.id === locationId);
-    if (location) {
-      alert(
-        `${location.name}\n\n${location.description}\n\nAdd a photo or memory here!`,
-      );
-    }
-  };
+  const [selectedLocation, setSelectedLocation] = useState<typeof locations[0] | null>(null);
 
   return (
     <>
@@ -93,65 +59,56 @@ function LoveMap(): JSX.Element {
         <div className="cm-map-header">
           <MapIcon />
           <h1 className="cm-map-title">Our Love Map</h1>
-          <p className="cm-map-subtitle">Places that mean the world to us 🗺️</p>
+          <p className="cm-map-subtitle">Real places where we created memories 🗺️</p>
         </div>
 
         <div className="cm-map-display">
-          <div className="cm-map-background">
-            {/* Abstract map background */}
-            <svg viewBox="0 0 100 100" className="cm-map-svg">
-              {/* Decorative paths */}
-              <path
-                d="M10 20 Q30 10 50 25 T90 20"
-                stroke="#ffb3c1"
-                strokeWidth="0.5"
-                fill="none"
-                opacity="0.5"
-              />
-              <path
-                d="M10 50 Q40 40 60 55 T90 50"
-                stroke="#ffb3c1"
-                strokeWidth="0.5"
-                fill="none"
-                opacity="0.5"
-              />
-              <path
-                d="M10 80 Q35 70 55 85 T90 80"
-                stroke="#ffb3c1"
-                strokeWidth="0.5"
-                fill="none"
-                opacity="0.5"
-              />
-
-              {/* Decorative dots */}
-              <circle cx="20" cy="30" r="1" fill="#ff6b9d" opacity="0.3" />
-              <circle cx="80" cy="40" r="1" fill="#ff6b9d" opacity="0.3" />
-              <circle cx="35" cy="70" r="1" fill="#ff6b9d" opacity="0.3" />
-              <circle cx="75" cy="75" r="1" fill="#ff6b9d" opacity="0.3" />
-            </svg>
-
-            {/* Location pins */}
-            {locations.map((location) => (
-              <div
-                key={location.id}
-                className="cm-map-pin"
-                style={{ left: `${location.x}%`, top: `${location.y}%` }}
-                onClick={() => cmHandlePinClick(location.id)}
+          <MapContainer 
+            center={[28.6139, 77.2090]} 
+            zoom={13} 
+            scrollWheelZoom={false}
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            {locations.map((loc) => (
+              <Marker 
+                key={loc.id} 
+                position={loc.position}
+                eventHandlers={{
+                  click: () => setSelectedLocation(loc),
+                }}
               >
-                <div className="cm-pin-bounce">
-                  <PinIcon />
-                </div>
-                <div className="cm-pin-label">
-                  <span className="cm-pin-emoji">{location.emoji}</span>
-                  <span className="cm-pin-name">{location.name}</span>
-                </div>
-              </div>
+                <Popup>
+                  <div style={{ textAlign: 'center' }}>
+                    <h3>{loc.emoji} {loc.name}</h3>
+                    <p>{loc.description}</p>
+                  </div>
+                </Popup>
+              </Marker>
             ))}
-          </div>
+          </MapContainer>
+
+          {selectedLocation && (
+            <div className="cm-location-info-card">
+              <div className="cm-location-header">
+                <span className="cm-location-emoji">{selectedLocation.emoji}</span>
+                <h3 className="cm-location-name">{selectedLocation.name}</h3>
+              </div>
+              <p className="cm-location-desc">{selectedLocation.description}</p>
+              <button className="cm-location-close" onClick={() => setSelectedLocation(null)}>✕</button>
+            </div>
+          )}
 
           <div className="cm-map-legend">
             {locations.map((location) => (
-              <div key={location.id} className="cm-legend-item">
+              <div 
+                key={location.id} 
+                className={`cm-legend-item ${selectedLocation?.id === location.id ? 'cm-selected' : ''}`}
+                onClick={() => setSelectedLocation(location)}
+                style={{ cursor: 'pointer' }}
+              >
                 <span className="cm-legend-emoji">{location.emoji}</span>
                 <span className="cm-legend-name">{location.name}</span>
               </div>
@@ -161,8 +118,7 @@ function LoveMap(): JSX.Element {
 
         <div className="cm-map-note">
           <p>
-            💡 Click on pins to see memories. Add real coordinates and photos to
-            make it your own!
+            💡 You can zoom and drag the map! Click on markers to see the special memories at each spot.
           </p>
         </div>
       </div>

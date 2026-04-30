@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // SVG Icons
 const MusicIcon = () => (
   <svg
@@ -88,8 +90,15 @@ const songs = [
 ];
 
 function MusicPlayer(): JSX.Element {
-  const cmHandlePlay = (songId: number): void => {
-    alert(`Playing song ${songId}! Add your Spotify/YouTube embed links here.`);
+  const [selectedSong, setSelectedSong] = useState<(typeof songs)[0] | null>(null);
+
+  const photoNames = [
+    "cherry_blossom_walk", "cafe_morning", "beach_sunset", 
+    "stargazing_hill", "kitchen_chaos", "baking_together"
+  ];
+
+  const cmHandlePlay = (song: typeof songs[0]): void => {
+    setSelectedSong(song);
   };
 
   return (
@@ -105,16 +114,22 @@ function MusicPlayer(): JSX.Element {
         <div className="cm-music-player">
           <div className="cm-now-playing">
             <div className="cm-album-art">
-              <MusicIcon />
-              <div className="cm-playing-animation">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+              {selectedSong ? (
+                <img src={`/photos/${photoNames[selectedSong.id - 1]}.png`} alt="Album Art" className="cm-album-img" />
+              ) : (
+                <MusicIcon />
+              )}
+              {selectedSong && (
+                <div className="cm-playing-animation">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              )}
             </div>
             <div className="cm-song-info">
-              <h3 className="cm-song-title">Select a song</h3>
-              <p className="cm-song-artist">Our special playlist</p>
+              <h3 className="cm-song-title">{selectedSong ? selectedSong.title : "Select a song"}</h3>
+              <p className="cm-song-artist">{selectedSong ? selectedSong.artist : "Our special playlist"}</p>
             </div>
           </div>
 
@@ -122,8 +137,8 @@ function MusicPlayer(): JSX.Element {
             {songs.map((song, index) => (
               <div
                 key={song.id}
-                className="cm-song-item"
-                onClick={() => cmHandlePlay(song.id)}
+                className={`cm-song-item ${selectedSong?.id === song.id ? 'cm-active-song' : ''}`}
+                onClick={() => cmHandlePlay(song)}
               >
                 <span className="cm-song-number">{index + 1}</span>
                 <span className="cm-song-emoji">{song.emoji}</span>
@@ -142,6 +157,21 @@ function MusicPlayer(): JSX.Element {
             ))}
           </div>
         </div>
+
+        <style>{`
+          .cm-album-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+          }
+          .cm-active-song {
+            background: #fff0f3;
+          }
+          .cm-active-song .cm-song-name {
+            color: #d63384;
+          }
+        `}</style>
 
         <div className="cm-music-note">
           <p>

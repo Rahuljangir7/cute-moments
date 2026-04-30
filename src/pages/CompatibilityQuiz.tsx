@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 
 // SVG Icons
 const QuizIcon = () => (
@@ -80,6 +81,17 @@ function CompatibilityQuiz(): JSX.Element {
   const [cmShowResult, setCmShowResult] = useState(false);
   const [cmSelectedAnswer, setCmSelectedAnswer] = useState<number | null>(null);
   const [cmShowFeedback, setCmShowFeedback] = useState(false);
+
+  useEffect(() => {
+    if (cmShowResult) {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#ff6b9d", "#d63384", "#4caf50", "#ffd700"]
+      });
+    }
+  }, [cmShowResult]);
 
   const cmHandleAnswer = (optionIndex: number): void => {
     setCmSelectedAnswer(optionIndex);

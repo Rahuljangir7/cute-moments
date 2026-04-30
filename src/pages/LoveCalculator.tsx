@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import confetti from "canvas-confetti";
 
 // SVG Icons
 const HeartIcon = () => (
@@ -74,6 +75,17 @@ function LoveCalculator(): JSX.Element {
   const [cmScore, setCmScore] = useState(0);
   const [cmShowResult, setCmShowResult] = useState(false);
   const [cmSelectedOption, setCmSelectedOption] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (cmShowResult) {
+      confetti({
+        particleCount: 150,
+        spread: 70,
+        origin: { y: 0.6 },
+        colors: ["#ff6b9d", "#d63384", "#ff85a2", "#ffd700"]
+      });
+    }
+  }, [cmShowResult]);
 
   const cmHandleAnswer = (optionIndex: number): void => {
     setCmScore((prev) => prev + (optionIndex + 1) * 5);

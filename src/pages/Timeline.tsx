@@ -1,55 +1,62 @@
+import { useState } from "react";
+
 interface Memory {
   id: number;
   date: string;
   title: string;
   description: string;
   emoji: string;
+  image: string;
 }
 
 const memories: Memory[] = [
   {
     id: 1,
-    date: "First Meet 💫",
-    title: "The Day Our Eyes Met",
-    description: "That magical moment when we first saw each other...",
+    date: "The Spark 💫",
+    title: "Our First Encounter",
+    description: "That magical walk under the cherry blossoms where it all began...",
     emoji: "✨",
+    image: "/photos/cherry_blossom_walk.png"
   },
   {
     id: 2,
-    date: "First Date 🌹",
-    title: "Our First Adventure Together",
-    description: "Nervous smiles, endless talks, and the beginning of us...",
-    emoji: "🌸",
+    date: "Sweet Beginnings 🌹",
+    title: "First Coffee Date",
+    description: "Nervous smiles and warm coffee. The morning I knew you were special...",
+    emoji: "☕",
+    image: "/photos/cafe_morning.png"
   },
   {
     id: 3,
-    date: "First Trip ✈️",
-    title: "Exploring The World Together",
-    description: "New places, new memories, same amazing company...",
-    emoji: "🗺️",
+    date: "Ocean Breeze ✈️",
+    title: "Golden Hour at the Beach",
+    description: "Walking hand in hand as the sun dipped below the horizon...",
+    emoji: "🌊",
+    image: "/photos/beach_sunset.png"
   },
   {
     id: 4,
-    date: "Special Moments 💕",
-    title: "Countless Beautiful Memories",
-    description: "Every laugh, every hug, every moment spent together...",
-    emoji: "💖",
+    date: "Starry Nights 💕",
+    title: "Gazing at the Universe",
+    description: "Lying on the grass, talking about life and looking at the stars...",
+    emoji: "🌟",
+    image: "/photos/stargazing_hill.png"
   },
   {
     id: 5,
     date: "Today & Forever 💍",
-    title: "You Said YES!",
-    description: "The beginning of our forever...",
+    title: "The Perfect Proposal",
+    description: "The moment you made me the luckiest person in the world!",
     emoji: "💝",
+    image: "/photos/baking_together.png"
   },
 ];
 
 function Timeline(): JSX.Element {
+  const [selectedMemory, setSelectedMemory] = useState<number | null>(null);
+
   const cmHandleViewPhotos = (memoryId: number): void => {
-    // Placeholder for photo viewing functionality
-    alert(
-      `View photos for memory ${memoryId} - Add your photos to public/photos/ folder!`,
-    );
+    setSelectedMemory(selectedMemory === memoryId ? null : memoryId);
   };
 
   return (
@@ -72,17 +79,38 @@ function Timeline(): JSX.Element {
                 <div className="cm-timeline-date">{cmMemory.date}</div>
                 <h3 className="cm-timeline-heading">{cmMemory.title}</h3>
                 <p className="cm-timeline-desc">{cmMemory.description}</p>
+                
+                {selectedMemory === cmMemory.id && (
+                   <div className="cm-timeline-photo-container">
+                     <img src={cmMemory.image} alt={cmMemory.title} className="cm-timeline-img" />
+                   </div>
+                )}
+
                 <button
                   className="cm-timeline-photo-btn"
                   onClick={() => cmHandleViewPhotos(cmMemory.id)}
                 >
-                  📸 View Photos
+                  {selectedMemory === cmMemory.id ? "Hide Photo" : "📸 View Photo"}
                 </button>
               </div>
               <div className="cm-timeline-dot"></div>
             </div>
           ))}
         </div>
+
+        <style>{`
+          .cm-timeline-photo-container {
+            margin: 15px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease;
+          }
+          .cm-timeline-img {
+            width: 100%;
+            height: auto;
+            display: block;
+          }
+        `}</style>
       </div>
     </>
   );

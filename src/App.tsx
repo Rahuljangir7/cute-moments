@@ -12,24 +12,40 @@ import CompatibilityQuiz from "./pages/CompatibilityQuiz";
 import MusicPlayer from "./pages/MusicPlayer";
 import LoveMap from "./pages/LoveMap";
 import Scrapbook from "./pages/Scrapbook";
+import VirtualHug from "./pages/VirtualHug";
+import DailyCompliment from "./pages/DailyCompliment";
+import MoodHeart from "./pages/MoodHeart";
+import SecretMessage from "./pages/SecretMessage";
+import HomeButton from "./components/HomeButton";
+import CursorStars from "./components/CursorStars";
+import Sidebar from "./components/Sidebar";
 
 function App(): JSX.Element {
   return (
-    <Routes>
-      <Route path="/" element={<Landing />} />
-      <Route path="/proposal" element={<Home />} />
-      <Route path="/yes" element={<Yes />} />
-      <Route path="/timeline" element={<Timeline />} />
-      <Route path="/love-calculator" element={<LoveCalculator />} />
-      <Route path="/love-letter" element={<LoveLetter />} />
-      <Route path="/countdown" element={<Countdown />} />
-      <Route path="/gallery" element={<PhotoGallery />} />
-      <Route path="/promise-jar" element={<PromiseJar />} />
-      <Route path="/quiz" element={<CompatibilityQuiz />} />
-      <Route path="/music" element={<MusicPlayer />} />
-      <Route path="/map" element={<LoveMap />} />
-      <Route path="/scrapbook" element={<Scrapbook />} />
-    </Routes>
+    <>
+      <CursorStars />
+      <Sidebar />
+      <HomeButton />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/proposal" element={<Home />} />
+        <Route path="/yes" element={<Yes />} />
+        <Route path="/timeline" element={<Timeline />} />
+        <Route path="/love-calculator" element={<LoveCalculator />} />
+        <Route path="/love-letter" element={<LoveLetter />} />
+        <Route path="/countdown" element={<Countdown />} />
+        <Route path="/gallery" element={<PhotoGallery />} />
+        <Route path="/promise-jar" element={<PromiseJar />} />
+        <Route path="/quiz" element={<CompatibilityQuiz />} />
+        <Route path="/music" element={<MusicPlayer />} />
+        <Route path="/map" element={<LoveMap />} />
+        <Route path="/scrapbook" element={<Scrapbook />} />
+        <Route path="/hug" element={<VirtualHug />} />
+        <Route path="/compliment" element={<DailyCompliment />} />
+        <Route path="/mood" element={<MoodHeart />} />
+        <Route path="/secret" element={<SecretMessage />} />
+      </Routes>
+    </>
   );
 }
 

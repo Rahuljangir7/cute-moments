@@ -77,6 +77,30 @@ function Landing(): JSX.Element {
             >
               📖 Scrapbook
             </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/hug")}
+            >
+              🤗 Virtual Hug
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/compliment")}
+            >
+              💖 Daily Compliment
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/mood")}
+            >
+              🌈 Mood Heart
+            </button>
+            <button
+              className="cm-feature-btn"
+              onClick={() => navigate("/secret")}
+            >
+              🔐 Secret Code
+            </button>
           </div>
         </div>
       </div>
