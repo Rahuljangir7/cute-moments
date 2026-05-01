@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import SEO from "../components/SEO";
 
 // SVG Icons
 const MusicIcon = () => (
@@ -103,6 +104,11 @@ function MusicPlayer(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Our Romantic Playlist" 
+        description="Listen to the songs that define our love. A curated playlist of romantic tracks that take us back to our favorite moments."
+        keywords="romantic music, love songs, couple playlist, music for lovers"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-music-container">
         <div className="cm-music-header">

@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 import confetti from "canvas-confetti";
 
 function Yes(): JSX.Element {
@@ -91,6 +92,11 @@ function Yes(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="She Said Yes! - Celebration" 
+        description="The magical moment when love was accepted. Celebrating our commitment and the beautiful journey ahead."
+        keywords="proposal accepted, she said yes, valentine celebration, love victory"
+      />
       <div className="cm-hearts-bg"></div>
 
       <div className="cm-container">

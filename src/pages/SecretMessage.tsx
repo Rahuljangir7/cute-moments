@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 const SecretMessage = () => {
   const [input, setInput] = useState("");
@@ -18,6 +19,11 @@ const SecretMessage = () => {
 
   return (
     <>
+      <SEO 
+        title="Secret Love Message - Encrypted" 
+        description="Share a private, encrypted message that only your partner can unlock. A unique way to share your most intimate thoughts safely."
+        keywords="secret message, love code, private notes, encrypted love message"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-secret-container">
         <h1 className="cm-timeline-title">Secret Code 🔐</h1>

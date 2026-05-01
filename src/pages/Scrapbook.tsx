@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 // SVG Icons
 const BookIcon = () => (
@@ -108,6 +109,11 @@ function Scrapbook(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Our Digital Scrapbook" 
+        description="A creative collection of our moments, stickers, and artistic memories. Flip through the pages of our shared journey."
+        keywords="digital scrapbook, relationship memories, creative love story, romantic stickers"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-scrapbook-container">
         <div className="cm-scrapbook-header">

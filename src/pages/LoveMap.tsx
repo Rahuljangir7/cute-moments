@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -54,6 +55,11 @@ function LoveMap(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Our Love Map - Places We Love" 
+        description="A geographical journey through our relationship. See the real places where we met, had our first date, and created lasting memories."
+        keywords="love map, relationship map, romantic spots, memory map"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-map-container">
         <div className="cm-map-header">

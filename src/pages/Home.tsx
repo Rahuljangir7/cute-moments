@@ -1,5 +1,6 @@
 import { useRef, useCallback, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SEO from "../components/SEO";
 
 const gifStages = [
   "/gifs/stage-0.gif",
@@ -137,6 +138,11 @@ function Home(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Will You Be My Valentine?" 
+        description="A playful and interactive way to ask your special someone to be your Valentine. Experience the fun runaway button and cute animations!"
+        keywords="valentine proposal, pookie proposal, interactive valentine, will you be my valentine"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-home-container">
         <h1 className="cm-valentine-title">Will you be my Valentine? 💕</h1>

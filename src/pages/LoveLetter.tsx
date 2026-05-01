@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../components/SEO";
 
 // SVG Icons
 const EnvelopeIcon = () => (
@@ -90,6 +91,11 @@ function LoveLetter(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Romantic Love Letter" 
+        description="Write and share beautiful, heartfelt love letters. Express your deepest emotions with our elegant romantic letter templates."
+        keywords="love letter, romantic message, express love, digital love letter"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-letter-container">
         {cmShowConfetti && (

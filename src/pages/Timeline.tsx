@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 interface Memory {
   id: number;
@@ -61,6 +62,11 @@ function Timeline(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Our Love Timeline" 
+        description="A beautiful chronological journey through our most precious memories. From the first encounter to the perfect proposal."
+        keywords="love timeline, relationship history, romantic memories, love story timeline"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-timeline-container">
         <h1 className="cm-timeline-title">Our Love Story 💕</h1>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import SEO from "../components/SEO";
 
 // SVG Icons
 const JarIcon = () => (
@@ -122,6 +123,11 @@ function PromiseJar(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Our Digital Promise Jar" 
+        description="A sacred space for our promises to each other. Keep and cherish the commitments that make our love strong."
+        keywords="promise jar, digital promises, relationship commitments, romantic promises"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-jar-container">
         <div className="cm-jar-header">

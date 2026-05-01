@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import confetti from "canvas-confetti";
+import SEO from "../components/SEO";
 
 // SVG Icons
 const HeartIcon = () => (
@@ -127,6 +128,11 @@ function LoveCalculator(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Love Calculator - Test Your Bond" 
+        description="Discover your relationship strength with our interactive Love Calculator. Answer fun questions and see if you are truly soulmates!"
+        keywords="love calculator, relationship test, soulmate test, romantic quiz"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-calc-container">
         <div className="cm-calc-header">

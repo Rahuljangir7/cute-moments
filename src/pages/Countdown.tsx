@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../components/SEO";
 
 // SVG Icons
 const ClockIcon = () => (
@@ -129,6 +130,11 @@ function Countdown(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Love Countdown - Every Second Counts" 
+        description="Track the time until our next big moment. A beautiful real-time countdown to celebrate our upcoming anniversaries and special dates."
+        keywords="love countdown, relationship timer, anniversary countdown, special moments"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-countdown-container">
         <div className="cm-countdown-header">

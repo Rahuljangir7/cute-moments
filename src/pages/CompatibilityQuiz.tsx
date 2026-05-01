@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../components/SEO";
 import confetti from "canvas-confetti";
 
 // SVG Icons
@@ -131,6 +132,11 @@ function CompatibilityQuiz(): JSX.Element {
 
   return (
     <>
+      <SEO 
+        title="Compatibility Quiz - How well do we match?" 
+        description="Take our fun and insightful compatibility quiz to see how well you and your partner understand each other. Perfect for couples!"
+        keywords="compatibility quiz, couple quiz, relationship test, how well do you know me"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-quiz-container">
         <div className="cm-quiz-header">

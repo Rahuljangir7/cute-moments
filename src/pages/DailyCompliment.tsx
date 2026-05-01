@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import SEO from "../components/SEO";
 
 const compliments = [
   "You're the most beautiful person I know, inside and out. ✨",
@@ -37,6 +38,11 @@ const DailyCompliment = () => {
 
   return (
     <>
+      <SEO 
+        title="Daily Romantic Compliments" 
+        description="Start your day with a sweet and heartfelt compliment. A collection of romantic affirmations to make your partner feel special every single day."
+        keywords="daily compliments, romantic affirmations, love messages, sweet words"
+      />
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-compliment-container">
         <h1 className="cm-timeline-title">Daily Compliment 💖</h1>
