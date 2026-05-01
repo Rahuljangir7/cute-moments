@@ -7,14 +7,19 @@
 body {
   background-color: #f8f9fa;
   font-family: "Nunito", sans-serif;
-  height: auto;
   width: 100%;
   min-height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  overflow-x: hidden;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  position: relative;
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' style='font-size: 24px;'><text y='20'>💖</text></svg>"), auto;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-btn, label {
@@ -66,16 +71,16 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 40px 20px;
+  padding: 80px 20px 40px; /* More top padding for the fixed buttons */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 90%;
-  max-width: 800px; /* Reduced max-width for a more "centered box" feel */
+  width: 100%;
+  max-width: 800px;
   margin: 0 auto;
-  height: auto;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 /* Header text styles */
@@ -2195,6 +2200,7 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
   top: 0;
   right: -280px;
   width: 280px;
+  max-width: 85vw; /* Don't cover entire screen on small mobile */
   height: 100vh;
   background: white;
   z-index: 1000;
@@ -2205,7 +2211,7 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
 }
 
 .cm-sidebar.open {
-  transform: translateX(-280px);
+  transform: translateX(-100%);
 }
 
 .cm-sidebar-overlay {
@@ -2276,20 +2282,40 @@ button, a, .cm-feature-btn, .cm-btn, .cm-mood-btn, .cm-legend-item, .cm-sticker-
 /* Mobile Responsiveness Improvements */
 @media (max-width: 768px) {
   .cm-container {
-    width: 95%;
-    padding: 20px 15px;
-    margin: 60px auto 20px;
+    width: 100%;
+    padding: 70px 15px 30px;
+    margin: 0 auto;
   }
 
-  .cm-landing-title { font-size: 2.5rem; }
-  .cm-features-grid { grid-template-columns: 1fr 1fr; }
+  .cm-landing-title { font-size: 2.2rem; }
+  .cm-features-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 8px;
+  }
   
+  .cm-feature-btn {
+    padding: 10px 5px;
+    font-size: 0.8rem;
+  }
+
   .cm-gallery-grid { grid-template-columns: 1fr 1fr; }
   .cm-large { grid-column: span 2; }
   
   .cm-timeline-item { width: 100% !important; padding-left: 40px !important; padding-right: 0 !important; }
   .cm-timeline-dot { left: 10px !important; }
   .cm-timeline::after { left: 10px !important; }
+
+  .cm-menu-btn { top: 15px; right: 15px; width: 40px; height: 40px; }
+  .cm-home-nav { top: 15px; left: 15px; }
+  .cm-home-btn { width: 40px; height: 40px; font-size: 1.2rem; }
+}
+
+@media (max-width: 480px) {
+  .cm-landing-title { font-size: 1.8rem; }
+  .cm-features-grid { grid-template-columns: 1fr; }
+  .cm-buttons { flex-direction: column; gap: 15px; }
+  .cm-valentine-btn { padding: 15px 30px; font-size: 1.4rem; }
+  .cm-sidebar { width: 80%; }
 }
 
 /* Cursor Stars Animation */
