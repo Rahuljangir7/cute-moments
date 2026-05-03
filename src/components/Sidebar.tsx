@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const menuItems = [
   { path: "/", label: "🏠 Home" },
@@ -21,15 +24,15 @@ const menuItems = [
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   return (
     <>
       {/* Hamburger Button */}
-      <button 
-        className={`cm-menu-btn ${isOpen ? 'open' : ''}`} 
+      <button
+        className={`cm-menu-btn ${isOpen ? "open" : ""}`}
         onClick={toggleSidebar}
         aria-label="Toggle Menu"
       >
@@ -39,23 +42,25 @@ const Sidebar = () => {
       </button>
 
       {/* Sidebar Overlay */}
-      <div 
-        className={`cm-sidebar-overlay ${isOpen ? 'show' : ''}`} 
+      <div
+        className={`cm-sidebar-overlay ${isOpen ? "show" : ""}`}
         onClick={toggleSidebar}
       ></div>
 
       {/* Sidebar Menu */}
-      <nav className={`cm-sidebar ${isOpen ? 'open' : ''}`}>
+      <nav className={`cm-sidebar ${isOpen ? "open" : ""}`}>
         <div className="cm-sidebar-header">
           <h2>Menu 💕</h2>
-          <button className="cm-close-sidebar" onClick={toggleSidebar}>✕</button>
+          <button className="cm-close-sidebar" onClick={toggleSidebar}>
+            ✕
+          </button>
         </div>
         <ul className="cm-sidebar-links">
           {menuItems.map((item) => (
             <li key={item.path}>
-              <Link 
-                to={item.path} 
-                className={`cm-sidebar-link ${location.pathname === item.path ? 'active' : ''}`}
+              <Link
+                href={item.path}
+                className={`cm-sidebar-link ${pathname === item.path ? "active" : ""}`}
                 onClick={toggleSidebar}
               >
                 {item.label}

@@ -1,14 +1,17 @@
-import { Link, useLocation } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const HomeButton = () => {
-  const location = useLocation();
-  
+  const pathname = usePathname();
+
   // Don't show on Landing page
-  if (location.pathname === "/") return null;
+  if (pathname === "/") return null;
 
   return (
     <div className="cm-home-nav">
-      <Link to="/" className="cm-home-btn" title="Back to Home">
+      <Link href="/" className="cm-home-btn" title="Back to Home">
         🏠
       </Link>
     </div>

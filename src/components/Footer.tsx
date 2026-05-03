@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -6,10 +6,10 @@ const Footer = () => {
       <div className="cm-footer-content">
         <p>© 2026 Cute Moments. All rights reserved.</p>
         <div className="cm-footer-links">
-          <Link to="/about">About Us</Link>
-          <Link to="/contact">Contact Us</Link>
-          <Link to="/privacy">Privacy Policy</Link>
-          <Link to="/terms">Terms of Service</Link>
+          <Link href="/about">About Us</Link>
+          <Link href="/contact">Contact Us</Link>
+          <Link href="/privacy">Privacy Policy</Link>
+          <Link href="/terms">Terms of Service</Link>
         </div>
       </div>
       <style>{`
