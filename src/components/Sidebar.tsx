@@ -50,8 +50,11 @@ const Sidebar = () => {
       {/* Sidebar Menu */}
       <nav className={`cm-sidebar ${isOpen ? "open" : ""}`}>
         <div className="cm-sidebar-header">
-          <h2>Menu 💕</h2>
-          <button className="cm-close-sidebar" onClick={toggleSidebar}>
+          <div className="flex flex-col items-center gap-2 mb-4 w-full">
+            <img src="/logo.png" alt="Cute Moments Logo" className="w-16 h-16 rounded-full shadow-md border-2 border-pink-100" />
+            <h2 className="text-[#d63384] font-bold">Cute Moments</h2>
+          </div>
+          <button className="cm-close-sidebar absolute top-4 right-4" onClick={toggleSidebar}>
             ✕
           </button>
         </div>

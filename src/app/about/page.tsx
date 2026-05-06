@@ -1,3 +1,11 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us | Our Story",
+  description: "Learn about the mission behind Cute Moments—creating a digital sanctuary for couples to celebrate and cherish their romantic journey.",
+  keywords: "about cute moments, romantic app mission, relationship memories app",
+};
+
 const About = () => {
   return (
     <>

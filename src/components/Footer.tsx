@@ -7,6 +7,8 @@ const Footer = () => {
         <p>© 2026 Cute Moments. All rights reserved.</p>
         <div className="cm-footer-links">
           <Link href="/about">About Us</Link>
+          <Link href="/blog">Blog</Link>
+          <Link href="/faq">FAQ</Link>
           <Link href="/contact">Contact Us</Link>
           <Link href="/privacy">Privacy Policy</Link>
           <Link href="/terms">Terms of Service</Link>

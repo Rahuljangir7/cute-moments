@@ -13,9 +13,10 @@ function Landing() {
     <>
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-landing-container">
-        <h1 className="cm-landing-title">Welcome 💕</h1>
+        <img src="/logo.png" alt="Cute Moments Logo" className="w-24 h-24 mx-auto mb-6 rounded-full shadow-lg animate-bounce" />
+        <h1 className="cm-landing-title">Celebrate Your Romantic Journey 💕</h1>
         <p className="cm-landing-subtitle">
-          I have something special for you...
+          The ultimate digital space to cherish your relationship memories, send virtual hugs, and build your love story together. ✨
         </p>
 
         {/* Feature Navigation Buttons */}
