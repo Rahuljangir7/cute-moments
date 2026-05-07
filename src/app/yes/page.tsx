@@ -22,7 +22,6 @@ function Yes() {
           setCmAudioPlaying(true);
         })
         .catch(() => {
-          // Music autoplay blocked, user can manually toggle
         });
     }
   }, []);
@@ -41,7 +40,6 @@ function Yes() {
     const duration = 6000;
     const end = Date.now() + duration;
 
-    // Initial big burst
     confetti({
       particleCount: 150,
       spread: 100,
@@ -49,7 +47,6 @@ function Yes() {
       colors,
     });
 
-    // Continuous side cannons
     const interval = setInterval(() => {
       if (Date.now() > end) {
         clearInterval(interval);
@@ -100,7 +97,13 @@ function Yes() {
         <h1 className="cm-yes-title">Knew you would say yes! 🎉</h1>
 
         <div className="cm-gif-container">
-          <Image id="cm-cat-gif" src="/gifs/celebration.gif" alt="celebrating" width={400} height={400} />
+          <Image
+            id="cm-cat-gif"
+            src="/gifs/celebration.gif"
+            alt="celebrating"
+            width={400}
+            height={400}
+          />
         </div>
 
         <p className="cm-yes-message">
@@ -108,15 +111,24 @@ function Yes() {
         </p>
 
         <div className="cm-yes-actions">
-          <button className="cm-timeline-nav-btn" onClick={cmHandleViewTimeline}>
+          <button
+            className="cm-timeline-nav-btn"
+            onClick={cmHandleViewTimeline}
+          >
             📸 View Our Memories →
           </button>
-          
+
           <div className="cm-extra-actions">
-            <button className="cm-feature-btn" onClick={() => router.push("/hug")}>
+            <button
+              className="cm-feature-btn"
+              onClick={() => router.push("/hug")}
+            >
               🤗 Get a Hug
             </button>
-            <button className="cm-feature-btn" onClick={() => router.push("/compliment")}>
+            <button
+              className="cm-feature-btn"
+              onClick={() => router.push("/compliment")}
+            >
               💖 Daily Compliment
             </button>
           </div>

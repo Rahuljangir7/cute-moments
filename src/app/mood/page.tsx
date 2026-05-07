@@ -20,27 +20,30 @@ const MoodHeart = () => {
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-mood-container">
         <h1 className="cm-timeline-title">Mood Heart 💖</h1>
-        <p className="cm-timeline-subtitle">How are you feeling right now? Let me know!</p>
-        
+        <p className="cm-timeline-subtitle">
+          How are you feeling right now? Let me know!
+        </p>
 
-        <div 
+        <div
           className="cm-mood-display-wrapper"
-          style={{ 
+          style={{
             borderColor: selectedMood.color,
-            boxShadow: `0 15px 45px ${selectedMood.color}40`
+            boxShadow: `0 15px 45px ${selectedMood.color}40`,
           }}
         >
-          <Image 
-            src={selectedMood.image} 
-            alt={selectedMood.name} 
+          <Image
+            src={selectedMood.image}
+            alt={selectedMood.name}
             className="cm-main-mood-img"
             width={300}
             height={300}
-            key={selectedMood.name} 
+            key={selectedMood.name}
           />
-          <div 
-            className="cm-mood-glow" 
-            style={{ background: `radial-gradient(circle, ${selectedMood.color}20 0%, transparent 70%)` }}
+          <div
+            className="cm-mood-glow"
+            style={{
+              background: `radial-gradient(circle, ${selectedMood.color}20 0%, transparent 70%)`,
+            }}
           ></div>
         </div>
 
@@ -52,14 +55,20 @@ const MoodHeart = () => {
               onClick={() => setSelectedMood(mood)}
             >
               <div className="cm-mood-btn-img-wrapper">
-                <Image src={mood.image} alt={mood.name} className="cm-mood-btn-img" width={60} height={60} />
+                <Image
+                  src={mood.image}
+                  alt={mood.name}
+                  className="cm-mood-btn-img"
+                  width={60}
+                  height={60}
+                />
               </div>
               <p>{mood.name}</p>
             </button>
           ))}
         </div>
 
-        <div className="cm-music-note" style={{ marginTop: '40px' }}>
+        <div className="cm-music-note cm-mood-music-note">
           <p>💡 Change the heart color to match your current mood!</p>
         </div>
       </div>

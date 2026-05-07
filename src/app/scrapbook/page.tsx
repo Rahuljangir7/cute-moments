@@ -68,17 +68,31 @@ const scrapItems = [
     x: 20,
     y: 20,
     rotation: -5,
-    image: "/photos/cherry_blossom_walk.png"
+    image: "/photos/cherry_blossom_walk.png",
   },
-  { id: 2, content: "That amazing coffee date ☕", x: 60, y: 40, rotation: 3, image: "/photos/cafe_morning.png" },
-  { id: 3, content: "When you made me laugh 😄", x: 30, y: 70, rotation: -3, image: "/photos/stargazing_hill.png" },
+  {
+    id: 2,
+    content: "That amazing coffee date ☕",
+    x: 60,
+    y: 40,
+    rotation: 3,
+    image: "/photos/cafe_morning.png",
+  },
+  {
+    id: 3,
+    content: "When you made me laugh 😄",
+    x: 30,
+    y: 70,
+    rotation: -3,
+    image: "/photos/stargazing_hill.png",
+  },
   {
     id: 4,
     content: "Holding hands for the first time 🤝",
     x: 70,
     y: 60,
     rotation: 5,
-    image: "/photos/beach_sunset.png"
+    image: "/photos/beach_sunset.png",
   },
 ];
 
@@ -158,7 +172,13 @@ function Scrapbook() {
             >
               <div className="cm-scrap-photo-placeholder">
                 {item.image ? (
-                  <Image src={item.image} alt={item.content} className="cm-scrap-img" width={150} height={150} />
+                  <Image
+                    src={item.image}
+                    alt={item.content}
+                    className="cm-scrap-img"
+                    width={150}
+                    height={150}
+                  />
                 ) : (
                   <span className="cm-scrap-text">{item.content}</span>
                 )}

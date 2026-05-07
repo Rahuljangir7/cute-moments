@@ -93,14 +93,20 @@ const songs = [
 ];
 
 function MusicPlayer() {
-  const [selectedSong, setSelectedSong] = useState<(typeof songs)[0] | null>(null);
+  const [selectedSong, setSelectedSong] = useState<(typeof songs)[0] | null>(
+    null,
+  );
 
   const photoNames = [
-    "cherry_blossom_walk", "cafe_morning", "beach_sunset", 
-    "stargazing_hill", "kitchen_chaos", "baking_together"
+    "cherry_blossom_walk",
+    "cafe_morning",
+    "beach_sunset",
+    "stargazing_hill",
+    "kitchen_chaos",
+    "baking_together",
   ];
 
-  const cmHandlePlay = (song: typeof songs[0]): void => {
+  const cmHandlePlay = (song: (typeof songs)[0]): void => {
     setSelectedSong(song);
   };
 
@@ -118,7 +124,13 @@ function MusicPlayer() {
           <div className="cm-now-playing">
             <div className="cm-album-art">
               {selectedSong ? (
-                <Image src={`/photos/${photoNames[selectedSong.id - 1]}.png`} alt="Album Art" className="cm-album-img" width={200} height={200} />
+                <Image
+                  src={`/photos/${photoNames[selectedSong.id - 1]}.png`}
+                  alt="Album Art"
+                  className="cm-album-img"
+                  width={200}
+                  height={200}
+                />
               ) : (
                 <MusicIcon />
               )}
@@ -131,8 +143,12 @@ function MusicPlayer() {
               )}
             </div>
             <div className="cm-song-info">
-              <h3 className="cm-song-title">{selectedSong ? selectedSong.title : "Select a song"}</h3>
-              <p className="cm-song-artist">{selectedSong ? selectedSong.artist : "Our special playlist"}</p>
+              <h3 className="cm-song-title">
+                {selectedSong ? selectedSong.title : "Select a song"}
+              </h3>
+              <p className="cm-song-artist">
+                {selectedSong ? selectedSong.artist : "Our special playlist"}
+              </p>
             </div>
           </div>
 
@@ -140,7 +156,7 @@ function MusicPlayer() {
             {songs.map((song, index) => (
               <div
                 key={song.id}
-                className={`cm-song-item ${selectedSong?.id === song.id ? 'cm-active-song' : ''}`}
+                className={`cm-song-item ${selectedSong?.id === song.id ? "cm-active-song" : ""}`}
                 onClick={() => cmHandlePlay(song)}
               >
                 <span className="cm-song-number">{index + 1}</span>
@@ -150,7 +166,12 @@ function MusicPlayer() {
                   <span className="cm-song-artist-name">{song.artist}</span>
                 </div>
                 <span className="cm-song-duration">{song.duration}</span>
-                <button className="cm-play-btn">
+                <button
+                  type="button"
+                  className="cm-play-btn"
+                  aria-label={`Play ${song.title}`}
+                  title={`Play ${song.title}`}
+                >
                   <PlayIcon />
                 </button>
                 <span className="cm-song-heart">

@@ -90,7 +90,7 @@ function CompatibilityQuiz() {
         particleCount: 150,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#ff6b9d", "#d63384", "#4caf50", "#ffd700"]
+        colors: ["#ff6b9d", "#d63384", "#4caf50", "#ffd700"],
       });
     }
   }, [cmShowResult]);

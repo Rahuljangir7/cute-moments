@@ -24,6 +24,12 @@ const markerIconUrl =
 const markerShadowUrl =
   "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png";
 
+const cmMapContainerStyle = {
+  height: "450px",
+  width: "100%",
+  borderRadius: "15px",
+};
+
 // SVG Icons for Header
 const MapIcon = () => (
   <svg
@@ -127,7 +133,7 @@ function LoveMap() {
             center={[28.6139, 77.209]}
             zoom={13}
             scrollWheelZoom={false}
-            style={{ height: "450px", width: "100%", borderRadius: "15px" }}
+            style={cmMapContainerStyle}
           >
             <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -143,7 +149,7 @@ function LoveMap() {
                 }}
               >
                 <Popup>
-                  <div style={{ textAlign: "center" }}>
+                  <div className="cm-map-popup-center">
                     <h3>
                       {loc.emoji} {loc.name}
                     </h3>
@@ -164,8 +170,11 @@ function LoveMap() {
               </div>
               <p className="cm-location-desc">{selectedLocation.description}</p>
               <button
+                type="button"
                 className="cm-location-close"
                 onClick={() => setSelectedLocation(null)}
+                aria-label="Close location details"
+                title="Close location details"
               >
                 ✕
               </button>
@@ -176,9 +185,8 @@ function LoveMap() {
             {locations.map((location) => (
               <div
                 key={location.id}
-                className={`cm-legend-item ${selectedLocation?.id === location.id ? "cm-selected" : ""}`}
+                className={`cm-legend-item cm-map-close-btn ${selectedLocation?.id === location.id ? "cm-selected" : ""}`}
                 onClick={() => setSelectedLocation(location)}
-                style={{ cursor: "pointer" }}
               >
                 <span className="cm-legend-emoji">{location.emoji}</span>
                 <span className="cm-legend-name">{location.name}</span>

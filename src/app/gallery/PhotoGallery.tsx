@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 import html2canvas from "html2canvas";
 
 const GalleryIcon = () => (
@@ -255,13 +255,13 @@ function PhotoGallery() {
                 />
 
                 {/* In-frame Upload Button */}
-                <label className="cm-in-frame-upload">
+                <label className="cm-in-frame-upload" htmlFor="file">
                   <CameraIcon />
                   <input
+                    id="file"
                     type="file"
                     accept="image/*"
                     onChange={(e) => handleInFrameUpload(photo.id, e)}
-                    style={{ display: "none" }}
                   />
                 </label>
 

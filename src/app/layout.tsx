@@ -1,12 +1,13 @@
 import type { Metadata, Viewport } from "next";
 import { Nunito, Dancing_Script } from "next/font/google";
 import "./globals.css";
+import "../styles/components.css";
 import CursorStars from "../components/CursorStars";
 import Sidebar from "../components/Sidebar";
 import HomeButton from "../components/HomeButton";
 import Footer from "../components/Footer";
 
-const nunito = Nunito({ 
+const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "600", "700", "800", "900"],
 });
@@ -16,20 +17,55 @@ const dancingScript = Dancing_Script({
   weight: ["700"],
 });
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "Cute Moments",
+      url: "https://cute-moments.vercel.app",
+      logo: "https://cute-moments.vercel.app/favicon-32x32.png",
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          contactType: "customer support",
+          email: "rahuljangir99501@gmail.com",
+        },
+      ],
+    },
+    {
+      "@type": "WebSite",
+      url: "https://cute-moments.vercel.app",
+      name: "Cute Moments",
+      description:
+        "A romantic app for couples to send virtual hugs, write love letters, create digital scrapbooks, and celebrate relationship milestones.",
+    },
+  ],
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cutemoments.app"),
+  metadataBase: new URL("https://cute-moments.vercel.app"),
   title: {
     default: "Cute Moments | The Ultimate Romantic App for Couples 💖",
-    template: "%s | Cute Moments"
+    template: "%s | Cute Moments",
   },
   description:
     "Cute Moments is the best romantic app for couples to share virtual hugs, create digital scrapbooks, write love letters, and track relationship milestones. Perfect for long-distance love! 💑",
   keywords: [
-    "romantic moments", "cute relationship app", "virtual hug for girlfriend", 
-    "virtual hug for boyfriend", "romantic scrapbook online", "love calculator", 
-    "couple memories app", "valentine surprise ideas", "relationship tracker", 
-    "long distance relationship tools", "digital love letters", "couple goals app",
-    "anniversary countdown", "romantic virtual experience"
+    "romantic app for couples",
+    "love story app",
+    "relationship app",
+    "virtual hug",
+    "love letter online",
+    "valentine proposal",
+    "digital scrapbook",
+    "couple memories",
+    "long distance love",
+    "romantic ideas",
+    "cute couple app",
+    "love calculator",
+    "promise jar",
+    "relationship quiz",
   ],
   authors: [{ name: "Cute Moments Team" }],
   creator: "Cute Moments",
@@ -41,8 +77,9 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Cute Moments | Celebrate Your Love Story 💖",
-    description: "Create, share, and cherish your most romantic memories with interactive features designed for couples.",
-    url: "https://cutemoments.app",
+    description:
+      "Create, share, and cherish your most romantic memories with interactive features designed for couples.",
+    url: "https://cute-moments.vercel.app",
     siteName: "Cute Moments",
     images: [
       {
@@ -58,7 +95,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Cute Moments | The Ultimate Romantic App 💑",
-    description: "Send virtual hugs and build a digital scrapbook of your relationship.",
+    description:
+      "Send virtual hugs and build a digital scrapbook of your relationship.",
     images: ["/og-image.png"],
   },
   robots: {
@@ -81,9 +119,7 @@ export const metadata: Metadata = {
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon.ico" },
     ],
-    apple: [
-      { url: "/apple-touch-icon.png" },
-    ],
+    apple: [{ url: "/apple-touch-icon.png" }],
     other: [
       {
         rel: "android-chrome",
@@ -112,6 +148,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
       <body className={`${nunito.className} ${dancingScript.className}`}>
         <CursorStars />
