@@ -19,7 +19,7 @@ export default function TermsPage() {
 
         <section>
           <h2 className="text-2xl font-semibold text-[#d63384] mb-3 border-b border-pink-100 pb-2">2. Use License</h2>
-          <p>Permission is granted to temporarily use the materials (information or software) on Cute Moments' website for personal, non-commercial transitory viewing only.</p>
+          <p>Permission is granted to temporarily use the materials (information or software) on Cute Moments&apos; website for personal, non-commercial transitory viewing only.</p>
           <p className="mt-2">This is the grant of a license, not a transfer of title, and under this license you may not:</p>
           <ul className="list-disc ml-6 mt-2 space-y-2">
             <li>Modify or copy the materials.</li>
@@ -31,12 +31,12 @@ export default function TermsPage() {
 
         <section>
           <h2 className="text-2xl font-semibold text-[#d63384] mb-3 border-b border-pink-100 pb-2">3. Disclaimer</h2>
-          <p>The materials on Cute Moments' website are provided on an 'as is' basis. Cute Moments makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
+          <p>The materials on Cute Moments&apos; website are provided on an &apos;as is&apos; basis. Cute Moments makes no warranties, expressed or implied, and hereby disclaims and negates all other warranties including, without limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, or non-infringement of intellectual property or other violation of rights.</p>
         </section>
 
         <section>
           <h2 className="text-2xl font-semibold text-[#d63384] mb-3 border-b border-pink-100 pb-2">4. Limitations</h2>
-          <p>In no event shall Cute Moments or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Cute Moments' website.</p>
+          <p>In no event shall Cute Moments or its suppliers be liable for any damages (including, without limitation, damages for loss of data or profit, or due to business interruption) arising out of the use or inability to use the materials on Cute Moments&apos; website.</p>
         </section>
 
         <section>

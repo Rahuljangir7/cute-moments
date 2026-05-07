@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const menuItems = [
@@ -51,7 +52,7 @@ const Sidebar = () => {
       <nav className={`cm-sidebar ${isOpen ? "open" : ""}`}>
         <div className="cm-sidebar-header">
           <div className="flex flex-col items-center gap-2 mb-4 w-full">
-            <img src="/logo.png" alt="Cute Moments Logo" className="w-16 h-16 rounded-full shadow-md border-2 border-pink-100" />
+            <Image src="/logo.png" alt="Cute Moments Logo" width={64} height={64} className="rounded-full shadow-md border-2 border-pink-100" />
             <h2 className="text-[#d63384] font-bold">Cute Moments</h2>
           </div>
           <button className="cm-close-sidebar absolute top-4 right-4" onClick={toggleSidebar}>

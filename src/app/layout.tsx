@@ -17,6 +17,7 @@ const dancingScript = Dancing_Script({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://cutemoments.app"),
   title: {
     default: "Cute Moments | The Ultimate Romantic App for Couples 💖",
     template: "%s | Cute Moments"

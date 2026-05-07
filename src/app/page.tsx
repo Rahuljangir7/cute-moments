@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 function Landing() {
   const router = useRouter();
@@ -13,7 +14,7 @@ function Landing() {
     <>
       <div className="cm-hearts-bg"></div>
       <div className="cm-container cm-landing-container">
-        <img src="/logo.png" alt="Cute Moments Logo" className="w-24 h-24 mx-auto mb-6 rounded-full shadow-lg animate-bounce" />
+        <Image src="/logo.png" alt="Cute Moments Logo" width={96} height={96} className="mx-auto mb-6 rounded-full shadow-lg animate-bounce" />
         <h1 className="cm-landing-title">Celebrate Your Romantic Journey 💕</h1>
         <p className="cm-landing-subtitle">
           The ultimate digital space to cherish your relationship memories, send virtual hugs, and build your love story together. ✨

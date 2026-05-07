@@ -55,7 +55,7 @@ export default function FAQPage() {
       
       <div className="mt-16 text-center bg-pink-50 p-8 rounded-3xl border border-pink-100">
         <h3 className="text-xl font-bold text-[#d63384] mb-2">Still have questions?</h3>
-        <p className="text-gray-600 mb-6">We're here to help you make your relationship even more special.</p>
+        <p className="text-gray-600 mb-6">We&apos;re here to help you make your relationship even more special.</p>
         <a href="/contact" className="inline-block bg-[#d63384] text-white px-8 py-3 rounded-full font-bold hover:bg-[#ff4d94] transition-all shadow-lg hover:shadow-pink-200">
           Contact Support 💌
         </a>
